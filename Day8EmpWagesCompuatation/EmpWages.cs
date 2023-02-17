@@ -10,14 +10,16 @@ namespace Day8EmpWagesCompuatation
     {
          const int Is_FullTime = 1;
          const int Is_PartTime = 2;
-         const int Emp_Per_Hour = 20;
-        const int Number_Of_Working_Day = 20;
+         const int Emp_Rate_Per_Hour = 20;
+         const int Number_Of_Working_Day = 20;
+         const int Max_Hrs_In_Month = 100;
         public void Employee()
         {
-            int Emp_Wage = 0;
+           // int Emp_Wage = 0;
             int Emp_Hr = 0;
-            int TotalEmpWage = 0;
-            for (int day = 0; day <= Number_Of_Working_Day; day++)
+            int TotalEmpHrs = 0;
+            int Total_Working_Days = 0;
+            while(TotalEmpHrs <=Max_Hrs_In_Month && Total_Working_Days < Number_Of_Working_Day)
             {
                 Random random = new Random();
                 int Emp_Check = random.Next(3);
@@ -36,10 +38,10 @@ namespace Day8EmpWagesCompuatation
                         Emp_Hr = 0;
                         break;
                }
-                 Emp_Wage = Emp_Hr * Emp_Per_Hour;
-                 TotalEmpWage += Emp_Wage;
-                Console.WriteLine("Daily employee wage will be:" + Emp_Wage);
+                TotalEmpHrs += Emp_Hr;
+                Console.WriteLine("Day:"+Total_Working_Days+" Emphrs:"+Emp_Hr);
             }
+            int TotalEmpWage = TotalEmpHrs * Emp_Rate_Per_Hour;
             Console.WriteLine("Total employee wage is:"+TotalEmpWage);
         }
     }
