@@ -7,15 +7,11 @@ namespace Day8EmpWagesCompuatation
         static void Main(string[] args)
         {
             Console.WriteLine("Welcome to the Employee Wage Compuatation");
-            EmpWageBuilderObject dmart = new EmpWageBuilderObject("Dmart",20,2,10);
-            EmpWageBuilderObject wipro = new EmpWageBuilderObject("Wipro", 24, 8, 18);
-            EmpWageBuilderObject Microsoft = new EmpWageBuilderObject("Microsoft", 30, 4, 18);
-            dmart.CalculateWage();
-            Console.WriteLine(dmart.ToString());
-            wipro.CalculateWage();
-            Console.WriteLine(wipro.ToString());
-            Microsoft.CalculateWage();
-            Console.WriteLine(Microsoft.ToString());
+            EmpWageBuilderArray empbuildarr = new EmpWageBuilderArray();
+            empbuildarr.addCompanyEmpWage("Dmart", 20, 8, 12);
+            empbuildarr.addCompanyEmpWage("Microsoft", 21, 10, 15);
+            empbuildarr.addCompanyEmpWage("Wipro", 24, 15, 18);
+            empbuildarr.IterateOverCompany();
         }
     }
 }
