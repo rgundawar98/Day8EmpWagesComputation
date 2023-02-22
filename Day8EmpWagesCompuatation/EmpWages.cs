@@ -6,11 +6,23 @@ using System.Threading.Tasks;
 
 namespace Day8EmpWagesCompuatation
 {
-    public class EmpWages
+    public class EmpWageBuilderObject
     {
         public const int Is_FullTime = 1;
         public const int Is_PartTime = 2;
-        public void CalculateWage(string Company ,int Emp_Rate_Per_Hour ,int Number_Of_Working_Day, int Max_Hrs_In_Month)
+        private string Company;
+        private int Emp_Rate_Per_Hour;
+        private int Number_Of_Working_Day;
+        private int Max_Hrs_In_Month;
+        private int TotalEmpWage;
+      public EmpWageBuilderObject(string Company, int Emp_Rate_PER_Hour, int Number_Of_Work_Day, int Max_Hrs_In_Month)
+        {
+            this.Company = Company;
+            this.Emp_Rate_Per_Hour= Emp_Rate_PER_Hour;
+            this.Number_Of_Working_Day= Number_Of_Work_Day;
+            this.Max_Hrs_In_Month = Max_Hrs_In_Month;
+        }
+        public void CalculateWage()
         {
             int Emp_Hr = 0;
             int TotalEmpHrs = 0;
@@ -39,6 +51,10 @@ namespace Day8EmpWagesCompuatation
             }
             int TotalEmpWage = TotalEmpHrs * Emp_Rate_Per_Hour;
             Console.WriteLine("Total employee wage for "+Company+" is :" + TotalEmpWage);
+        }
+        public string tostring()
+        {
+            return "Total Emp Wage for company:"+this.Company + "is" +this.TotalEmpWage;
         }
     }
 }
