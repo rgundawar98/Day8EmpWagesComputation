@@ -16,8 +16,10 @@ namespace Day8EmpWagesCompuatation
             empWageBuilder.addCompanyEmpWage("Bridgelabz", 20, 22, 10);
             empWageBuilder.addCompanyEmpWage("Wipro", 20, 25, 16);
             empWageBuilder.addCompanyEmpWage("HCL", 20, 28, 10);
-            empWageBuilder.IterateOverCompany();
-            Console.WriteLine("Total wages using Company is :"+empWageBuilder.GetTotalWageBasedOnCompany("Bridgelabz"));
+            empWageBuilder.ComputeEmpWage();
+            Console.WriteLine("Total wages for Bridgelabz is :" + empWageBuilder.getTotalWage("Bridgelabz"));
+            Console.WriteLine("Total wages for Wipro is :" + empWageBuilder.getTotalWage("Wipro"));
+            Console.WriteLine("Total wages for HCL is :" + empWageBuilder.getTotalWage("HCL"));
         }
     }
 }

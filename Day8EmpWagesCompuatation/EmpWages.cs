@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Day8EmpWagesCompuatation
 {
-    public class EmpWageBuilderArray
+    public class EmpWageBuilderArray: IComputeEmpWage
     {
         List<CompanyEmpWage> list;
         public const int Is_FullTime = 1;
@@ -46,6 +46,14 @@ namespace Day8EmpWagesCompuatation
                 //Console.WriteLine(companyEmpWageArray[i].ToString());
             }
         }
+        public void ComputeEmpWage()
+        {
+            foreach(CompanyEmpWage companyEmpWage in this.list)
+            {
+                companyEmpWage.setTotalEmpWage(this.ComputeEmpWage(companyEmpWage));
+                Console.WriteLine(companyEmpWage.ToString());
+            }
+        }
         public int ComputeEmpWage(CompanyEmpWage companyEmpWage)
         {
             int Emp_Hr = 0;
@@ -79,5 +87,10 @@ namespace Day8EmpWagesCompuatation
             totalEmpWage = TotalEmpHrs * companyEmpWage.Emp_Rate_PER_Hour;
             return totalEmpWage;
         }
+        public int getTotalWage(string Company)
+        {
+            return this.dict[Company].TotalEmpWage;
+        }
+
     }
 }

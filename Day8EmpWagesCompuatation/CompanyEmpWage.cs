@@ -6,6 +6,12 @@ using System.Threading.Tasks;
 
 namespace Day8EmpWagesCompuatation
 {
+    public interface IComputeEmpWage
+    {
+        public void addCompanyEmpWage(string Company, int Emp_Rate_PER_Hour, int Number_Of_Working_Day, int Max_Hrs_Per_Month);
+        public void ComputeEmpWage();
+        public int getTotalWage(string Company);
+    }
     public class CompanyEmpWage
     {
         public string Company;
