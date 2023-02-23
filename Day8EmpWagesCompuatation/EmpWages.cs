@@ -8,28 +8,35 @@ namespace Day8EmpWagesCompuatation
 {
     public class EmpWageBuilderArray
     {
+        List<CompanyEmpWage> list;
         public const int Is_FullTime = 1;
         public const int Is_PartTime = 2;
-        private int Num_Of_Company = 0;
-        private CompanyEmpWage[] companyEmpWageArray;
+        //private int Num_Of_Company = 0;
+        //private CompanyEmpWage[] companyEmpWageArray;
 
         public EmpWageBuilderArray()
         {
-            this.companyEmpWageArray = new CompanyEmpWage[5];
+            //this.companyEmpWageArray = new CompanyEmpWage[5];
+            list = new List<CompanyEmpWage>();
         }
 
         public void addCompanyEmpWage(string Company ,int Emp_Rate_PER_Hour, int Number_Of_Working_Day, int Max_Hrs_Per_Month)
         {
-            companyEmpWageArray[this.Num_Of_Company] = new CompanyEmpWage(Company, Emp_Rate_PER_Hour, Number_Of_Working_Day, Max_Hrs_Per_Month);
-            Number_Of_Working_Day++;
+            CompanyEmpWage compempwage = new CompanyEmpWage(Company,Emp_Rate_PER_Hour,Number_Of_Working_Day,Max_Hrs_Per_Month);
+            list.Add(compempwage);
+            //companyEmpWageArray[this.Num_Of_Company] = new CompanyEmpWage(Company, Emp_Rate_PER_Hour, Number_Of_Working_Day, Max_Hrs_Per_Month);
+           // Number_Of_Working_Day++;
         }
         public void IterateOverCompany()
         {
-            for(int i=0;i<Num_Of_Company;i++)
+            for(int i=0;i<list.Count;i++)
             {
-                int TotalEmpWage = ComputeEmpWage(companyEmpWageArray[i]);
-                companyEmpWageArray[i].setTotalEmpWage(TotalEmpWage);
-                Console.WriteLine(companyEmpWageArray[i].ToString());
+                int TotalEmpWage = ComputeEmpWage(list[i]);
+                list[i].setTotalEmpWage(TotalEmpWage);
+                Console.WriteLine(list[i].ToString());
+                //int TotalEmpWage = ComputeEmpWage(companyEmpWageArray[i]);
+                //companyEmpWageArray[i].setTotalEmpWage(TotalEmpWage);
+                //Console.WriteLine(companyEmpWageArray[i].ToString());
             }
         }
         public int ComputeEmpWage(CompanyEmpWage companyEmpWage)
