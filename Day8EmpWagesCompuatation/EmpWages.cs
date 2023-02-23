@@ -11,6 +11,7 @@ namespace Day8EmpWagesCompuatation
         List<CompanyEmpWage> list;
         public const int Is_FullTime = 1;
         public const int Is_PartTime = 2;
+        Dictionary<string, CompanyEmpWage> dict; //Used Dictonary
         //private int Num_Of_Company = 0;
         //private CompanyEmpWage[] companyEmpWageArray;
 
@@ -18,14 +19,20 @@ namespace Day8EmpWagesCompuatation
         {
             //this.companyEmpWageArray = new CompanyEmpWage[5];
             list = new List<CompanyEmpWage>();
+            dict = new Dictionary<string, CompanyEmpWage>();
         }
 
         public void addCompanyEmpWage(string Company ,int Emp_Rate_PER_Hour, int Number_Of_Working_Day, int Max_Hrs_Per_Month)
         {
             CompanyEmpWage compempwage = new CompanyEmpWage(Company,Emp_Rate_PER_Hour,Number_Of_Working_Day,Max_Hrs_Per_Month);
             list.Add(compempwage);
+            dict.Add(Company,compempwage);
             //companyEmpWageArray[this.Num_Of_Company] = new CompanyEmpWage(Company, Emp_Rate_PER_Hour, Number_Of_Working_Day, Max_Hrs_Per_Month);
            // Number_Of_Working_Day++;
+        }
+        public int GetTotalWageBasedOnCompany(string Company)
+        {
+            return dict[Company].TotalEmpWage;
         }
         public void IterateOverCompany()
         {
